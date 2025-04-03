@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Emotion-Based UI</title>
+  <link rel="stylesheet" href="style/main.css" />
+</head>
+<body class="fade-in">
+  <div id="mood-container">
+    <h1>How do you feel today?</h1>
+    <select id="mood-select">
+      <option value="">-- Select Emotion --</option>
+      <option value="happy">Happy</option>
+      <option value="sad">Sad</option>
+      <option value="angry">Angry</option>
+      <option value="anxious">Anxious</option>
+      <option value="calm">Calm</option>
+      <option value="tired">Tired</option>
+      <option value="excitement">Excitement</option>
+      <option value="motivated">Motivated</option>
+    </select>
+    <button id="submit-mood">Let’s go!</button>
+  </div>
+
+  <script>
+    // Apply theme colors if they exist
+    const bg = localStorage.getItem("bgColor");
+    const accent = localStorage.getItem("accentColor");
+    const text = localStorage.getItem("textColor");
+    if (bg && accent && text) {
+      document.body.style.backgroundColor = bg;
+      document.body.style.color = text;
+      document.documentElement.style.setProperty("--bg-color", bg);
+      document.documentElement.style.setProperty("--accent-color", accent);
+      document.documentElement.style.setProperty("--text-color", text);
+    }
+  </script>
+  <script src="scripts/app.js"></script>
+</body>
+</html>

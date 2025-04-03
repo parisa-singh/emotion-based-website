@@ -1,0 +1,75 @@
+:root {
+    --bg-color: #ffffff;
+    --accent-color: #ccc;
+    --text-color: #000;
+  }
+  
+  body {
+    margin: 0;
+    padding: 2rem;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    text-align: center;
+    transition: all 0.5s ease;
+  }
+  
+  body.fade-in {
+    animation: fadeIn 0.8s ease both;
+  }
+  body.fade-out {
+    animation: fadeOutPage 0.5s ease forwards;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes fadeOutPage {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  #mood-container {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    animation: slideUp 1s ease;
+  }
+  
+  @keyframes slideUp {
+    from { transform: translateY(100px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+  }
+  
+  .fade-out {
+    animation: fadeOut 0.8s ease forwards;
+  }
+  
+  @keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to   { opacity: 0; transform: translateY(-30px); }
+  }
+  
+  button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 1rem;
+    border: none;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  

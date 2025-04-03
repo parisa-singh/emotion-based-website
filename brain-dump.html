@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brain Dump</title>
+  <link rel="stylesheet" href="style/main.css" />
+  <link rel="stylesheet" href="style/components.css" />
+</head>
+<body class="fade-in">
+  <div id="brain-dump-page">
+    <a href="./dashboard.html" id="back-button">← Back to Menu</a>
+    <h2>Brain Dump 🧠</h2>
+    <button id="new-dump">New Dump </button>
+
+    <!-- New Dump Entry Section -->
+    <div id="dump-input" class="hidden">
+      <input type="text" id="dump-emotion" placeholder="Emotions you're feeling..." />
+      <textarea id="dump-text" placeholder="What's on your mind? Write it all out here..."></textarea>
+      <button id="submit-dump">Submit</button>
+    </div>
+
+    <div id="dump-list"></div>
+  </div>
+
+  <script src="scripts/brain-dump.js"></script>
+</body>
+</html>

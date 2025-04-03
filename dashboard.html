@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Dashboard</title>
+  <link rel="stylesheet" href="style/main.css" />
+  <link rel="stylesheet" href="style/components.css" />
+</head>
+<body class="fade-in">
+
+  <!-- Mood Orb -->
+  <div id="mood-orb"><span id="orb-emoji">💭</span></div>
+  <audio id="click-sound" src="./assets/click.mp3" preload="auto"></audio>
+
+  <div id="dashboard">
+    <div class="dashboard-card" id="welcome-card">
+      <h2 id="welcome-message">Hi, Parisa 🌸</h2>
+      <p id="mood-greeting">You're feeling...</p>
+    </div>
+
+    <div class="dashboard-grid fade-in-section">
+      <a href="affirmations.html" class="dashboard-button">💬 Affirmations</a>
+      <a href="brain-dump.html" class="dashboard-button">🧠 Brain Dump</a>
+      <a href="intentions.html" class="dashboard-button">🎯 Intentions</a>
+      <a href="habit-tracker.html" class="dashboard-button">📊 Habit Tracker</a>
+    </div>
+  </div>
+
+  <script>
+    const mood = localStorage.getItem("mood");
+    const bg = localStorage.getItem("bgColor");
+    const accent = localStorage.getItem("accentColor");
+    const text = localStorage.getItem("textColor");
+
+    if (bg && accent && text) {
+      document.body.style.backgroundColor = bg;
+      document.body.style.color = text;
+      document.documentElement.style.setProperty("--bg-color", bg);
+      document.documentElement.style.setProperty("--accent-color", accent);
+      document.documentElement.style.setProperty("--text-color", text);
+    }
+
+    const greetings = {
+      happy: "Today feels like sunshine ☀️",
+      sad: "Gentle thoughts for a cloudy heart 💙",
+      angry: "Let’s take a deep breath 🔥",
+      anxious: "You’re safe. Let’s slow down 🧘",
+      calm: "A calm breeze flows through today 🌿",
+      tired: "Rest and reflect — you deserve it 💤",
+      excitement: "There’s magic in the air ✨",
+      motivated: "You’re on fire — let’s go! 🚀"
+    };
+
+    const moodGreeting = document.getElementById("mood-greeting");
+    if (mood && greetings[mood]) {
+      moodGreeting.textContent = greetings[mood];
+    } else {
+      moodGreeting.textContent = "Welcome back to your sanctuary.";
+    }
+
+    const orb = document.getElementById("mood-orb");
+    const orbEmoji = document.getElementById("orb-emoji");
+    const clickSound = document.getElementById("click-sound");
+
+    const moodEmoji = {
+      happy: "🌞",
+      sad: "🌧",
+      angry: "🔥",
+      anxious: "⚠️",
+      calm: "🌿",
+      tired: "💤",
+      excitement: "🎉",
+      motivated: "🚀"
+    };
+
+    if (orb && accent) {
+      orb.style.backgroundColor = accent;
+      orb.style.boxShadow = `0 0 20px ${accent}`;
+    }
+
+    if (orbEmoji && mood) {
+      orbEmoji.textContent = moodEmoji[mood] || "💭";
+    }
+
+    orb.addEventListener("click", () => {
+      if (clickSound) clickSound.play();
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 150);
+    });
+  </script>
+</body>
+</html>
